@@ -2,14 +2,12 @@ package com.example.javafxpractice;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Collectors;
 
 class Poem {
 
-    public void main(){
+    public void main() {
         String line;
         int lineNum = 0;
         Map<String, Integer> wordFreq = new HashMap<>();
@@ -25,7 +23,7 @@ class Poem {
                         if (wordFreq.get(words[i]) == null) {
                             wordFreq.put(words[i], 1);
                         } else {
-                            int newValue = Integer.valueOf(String.valueOf(wordFreq.get(words[i])));
+                            int newValue = Integer.parseInt(String.valueOf(wordFreq.get(words[i])));
                             newValue++;
                             wordFreq.put(words[i], newValue);
                         }
@@ -39,15 +37,15 @@ class Poem {
         } catch (NumberFormatException e) {
             e.printStackTrace();
         }
-        List<Map.Entry<String, Integer>> list = new ArrayList<>(wordFreq.entrySet());
-        list.sort(Map.Entry.<String, Integer>comparingByValue().reversed());
+
+        List<Map.Entry<String, Integer>> list = wordFreq.entrySet().stream().sorted(Map.Entry.comparingByValue(Comparator.reverseOrder())).limit(20).collect(Collectors.toList());
 
         for (Map.Entry<String, Integer> key : list) {
-            System.out.println("Word: " + "'" + key.getKey() + "'" + " Counts: " + key.getValue());
+
+                System.out.println("Word: " + "'" + key.getKey() + "'" + " Counts: " + key.getValue());
         }
+
     }
-
-
 }
 
 
