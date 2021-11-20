@@ -5,9 +5,17 @@ import java.io.IOException;
 import java.util.*;
 import java.util.stream.Collectors;
 
+/**
+ * This class builds the poem word counter
+ *
+ * @author Jade Boone
+ */
 class Poem {
-
-    public void main() {
+    /**
+     * This method reads the file and goes through a for loop in order
+     * to count word frequencies and output the words from most occurred to least
+     */
+    public void poemMain() {
         String line;
         int lineNum = 0;
         Map<String, Integer> wordFreq = new HashMap<>();

@@ -12,14 +12,32 @@ import javafx.stage.Stage;
 import javafx.scene.control.Button;
 import java.io.IOException;
 
+/**
+ * This class is for creating the pop up box, title, and buttons
+ * for the project as well as launching the Javafx application
+ *
+ * @author Jade Boone
+ */
+
+
 public class HelloApplication extends Application{
+
+
 
     Button button = new Button("Click Here");
     private final Poem poem = new Poem();
-
+    /**
+     * This method is used to launch javafx program
+     */
     public static void main(String[] args){
         launch();
     }
+
+    /**
+     * This method designs the stage and scene.
+     * @param stage the window that pops up when the program is run
+     * @throws IOException
+     */
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -29,7 +47,7 @@ public class HelloApplication extends Application{
         text.setFill(Color.WHITE);
         button.setMaxSize(100,100);
         button.setStyle("-fx-background-color: #4d194d; -fx-text-fill: white");
-        button.setOnAction(actionEvent -> poem.main());
+        button.setOnAction(actionEvent -> poem.poemMain());
 
         VBox layout = new VBox();
         layout.getChildren().add(text);
