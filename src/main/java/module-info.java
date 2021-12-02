@@ -6,6 +6,7 @@ module com.example.javafxpractice {
     requires com.dlsc.formsfx;
     requires org.kordamp.bootstrapfx.core;
     requires org.junit.jupiter.api;
+    requires java.sql;
 
     opens com.example.javafxpractice to javafx.fxml;
     exports com.example.javafxpractice;

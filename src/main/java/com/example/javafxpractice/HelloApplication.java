@@ -11,6 +11,9 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 
 /**
  * This class is for creating the pop up box, title, and buttons
@@ -29,9 +32,26 @@ public class HelloApplication extends Application{
     /**
      * This method is used to launch javafx program
      */
-    public static void main(String[] args){
+    public static void main(String[] args) throws Exception {
+        getConnection();
         launch();
     }
+    public static Connection getConnection() throws Exception{
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/WordOccur","root","");
+            System.out.println("Connected");
+            return conn;
+        } catch(Exception e){ System.out.println(e);}
+
+        return null;
+    }
+
+
+
+
+
 
     /**
      * This method designs the stage and scene.

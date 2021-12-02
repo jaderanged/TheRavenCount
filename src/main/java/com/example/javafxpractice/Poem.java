@@ -2,8 +2,10 @@ package com.example.javafxpractice;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.sql.DriverManager;
 import java.util.*;
 import java.util.stream.Collectors;
+
 
 /**
  * This class builds the poem word counter
@@ -15,6 +17,8 @@ class Poem {
      * This method reads the file and goes through a for loop in order
      * to count word frequencies and output the words from most occurred to least
      */
+
+
     public void poemMain() {
         String line;
         int lineNum = 0;
@@ -54,6 +58,10 @@ class Poem {
         }
 
     }
+
+
+
+
 }
 
 
